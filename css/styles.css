@@ -38,6 +38,7 @@ body {
   color: var(--ink);
   background: var(--bg);
   overflow-x: hidden;
+  padding-top: var(--topbar-h); /* espacio del header fijo */
 }
 button { font: inherit; color: inherit; cursor: pointer; }
 svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
@@ -51,7 +52,8 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
   padding: 0 38px 0 55px;
   background: #fff; color: #212121;
   box-shadow: 0 1px 12px rgba(0,0,0,.08);
-  position: relative; z-index: 1001;
+  /* Fijo arriba: solo scrollea el resto de la página */
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1001;
   font-family: "Rubik", sans-serif;
 }
 .sh-logo { display: flex; align-items: center; height: 100%; }
