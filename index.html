@@ -8,7 +8,10 @@
   <!-- Tipografía -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Íconos (mismos que usa santafeciudad.gov.ar) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- Leaflet (mapa) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -17,18 +20,15 @@
 </head>
 <body>
 
-  <header class="topbar">
+  <!-- ===== HEADER (igual al de santafeciudad.gov.ar, sin navbar) ===== -->
+  <header class="site-header">
     <button class="icon-btn only-mobile" id="btnBarrios" aria-label="Ver barrios">
       <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
-    <div class="brand">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <div>
-        <h1>Incidentes barriales</h1>
-        <p>Municipalidad de Santa Fe · prototipo</p>
-      </div>
-    </div>
-    <div class="topbar-stats" id="stats"></div>
+    <a class="sh-logo" href="https://santafeciudad.gov.ar/" aria-label="Municipalidad de Santa Fe">
+      <img class="logo-desktop" src="img/logo-msf-blanco.png" alt="Municipalidad de Santa Fe">
+      <img class="logo-mobile" src="img/logo-msf-azul.png" alt="Municipalidad de Santa Fe">
+    </a>
   </header>
 
   <div class="layout">
@@ -59,6 +59,7 @@
           <span class="mh-distrito" id="mhDistrito">Ciudad de Santa Fe</span>
           <h2 id="mhNombre">Todos los barrios</h2>
           <p id="mhRef" class="mh-ref"></p>
+          <div class="mh-stats" id="stats"></div>
         </div>
       </div>
 
@@ -76,9 +77,46 @@
       </button>
       <div id="drawerBody"></div>
     </aside>
+
+    <div class="backdrop" id="backdrop"></div>
   </div>
 
-  <div class="backdrop" id="backdrop"></div>
+  <!-- ===== FOOTER (igual al de santafeciudad.gov.ar) ===== -->
+  <footer class="site-footer">
+    <svg class="sf-wave" viewBox="0 0 1920.1 171" preserveAspectRatio="none" aria-hidden="true">
+      <path class="w1" d="M0,0v109.7v4V167h0l0.3-39c114.1,20.2,257.5,20.6,391.4,10.3c155.5-12,303.7-37.2,453.9-58.3c150.2-21.1,308.7-38.6,462.7-34.1c146.1,4.2,275.9,27.8,405.5,48.9c60.1,9.8,122.3,19.1,186.5,25.8c6.7,1.4,13.5,2.8,20.2,4.3v-2.2v-1.8V0H0z"/>
+      <path class="w1" d="M0,0v113.7c191.8,6.7,375-12.2,547.6-34.2c15.9-2,31.8-4.1,47.7-6.1c192.5-25,387.1-51.2,601.9-46.7c242.3,5,489.3,48.6,723.3,98.1V0H0z"/>
+      <path class="w2" d="M1197.3,26.6c-214.9-4.4-409.4,21.8-601.9,46.7c-15.9,2.1-31.8,4.1-47.7,6.1c-172.6,22-355.8,41-547.6,34.2V171h0l0.3-39c114.1,20.2,257.5,20.6,391.4,10.3c155.5-12,303.7-37.2,453.9-58.3c150.2-21.1,308.7-38.6,462.7-34.1c146.1,4.2,275.9,27.8,405.5,48.9c66.4,10.8,135.3,21,206.7,27.8v-1.8C1686.6,75.1,1439.5,31.5,1197.3,26.6z"/>
+    </svg>
+
+    <div class="sf-inner">
+      <div class="sf-col sf-info">
+        <img class="sf-logo" src="img/logo-msf-azul.png" alt="Municipalidad de Santa Fe" loading="lazy">
+        <h2>Municipalidad de Santa Fe</h2>
+        <ul class="sf-contact">
+          <li><a href="https://goo.gl/maps/2CKcZaCpCeoUpzZr6" target="_blank" rel="noopener"><i class="bi bi-geo-alt-fill"></i>Salta 2951, Santa Fe</a></li>
+          <li><a href="tel:08007775000"><i class="bi bi-telephone-fill"></i>0800 777 5000</a></li>
+          <li><a href="mailto:informes@santafeciudad.gov.ar"><i class="bi bi-envelope-fill"></i>informes@santafeciudad.gov.ar</a></li>
+        </ul>
+      </div>
+
+      <div class="sf-col sf-social">
+        <h2>Redes sociales</h2>
+        <ul>
+          <li><a href="https://www.facebook.com/SantaFeCapitalok/" target="_blank" rel="noopener"><i class="bi bi-facebook"></i>Facebook</a></li>
+          <li><a href="https://x.com/_SantaFeCapital" target="_blank" rel="noopener"><i class="bi bi-twitter-x"></i>X</a></li>
+          <li><a href="https://www.instagram.com/santafecapitalok/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i>Instagram</a></li>
+          <li><a href="https://youtube.com/user/santafeciudadvideos" target="_blank" rel="noopener"><i class="bi bi-youtube"></i>YouTube</a></li>
+          <li><a href="https://open.spotify.com/user/314slh2lubonlonoqohu6uoqjleq" target="_blank" rel="noopener"><i class="bi bi-spotify"></i>Spotify</a></li>
+        </ul>
+      </div>
+
+      <img class="sf-diagonales" src="img/diagonales-footer.png" alt="" aria-hidden="true" loading="lazy">
+    </div>
+
+    <div class="sf-copy">© <span id="anio">2026</span> Roma diseños. Todos los derechos reservados.</div>
+  </footer>
+
   <div class="toast" id="toast" role="status"></div>
 
   <!-- Datos (formato JSON dentro de .js para que funcione con doble clic, sin servidor) -->

@@ -475,6 +475,8 @@
   $("#backdrop").addEventListener("click", () => { cerrarDrawer(); cerrarSidebar(); });
   $("#btnBarrios").addEventListener("click", abrirSidebar);
   document.addEventListener("keydown", e => { if (e.key === "Escape") { cerrarDrawer(); cerrarSidebar(); } });
+
+  $("#anio").textContent = new Date().getFullYear();
   window.addEventListener("hashchange", leerHash);
 
   // Bottom sheet: deslizar hacia abajo para cerrar (mobile)
