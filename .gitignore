@@ -1,0 +1,5 @@
+# Variables de entorno locales (nunca subir la API key)
+.env
+.env.*
+.vercel
+node_modules
